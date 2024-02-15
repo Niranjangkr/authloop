@@ -6,7 +6,7 @@ const para = "The sun dipped below the horizon, casting hues of orange and pink 
 export default function Step2({ setStep, recorderControls }) {
     const [isRecording, setIsRecording] = useState(false);
     const [recordingComplete, setRecordingComplete] = useState(false);
-    const [timer, setTimer] = useState(5);
+    const [timer, setTimer] = useState(10);
 
     const startRecording = () => {
         setIsRecording(true);
