@@ -1,17 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { Pause } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react"
-import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 
-const para = "The sun dipped below the horizon, casting hues of orange and pink across the sky. The air was cool and crisp, carrying the scent of pine and earth. Birds chirped their evening songs as they settled into their nests. A gentle breeze rustled through the leaves, creating a soothing melody. In the distance, the sound of flowing water could be heard, adding to the tranquil atmosphere. It was a moment of peace and serenity, a time to pause and appreciate the beauty of nature."
+const para = "The sun dipped below the horizon, casting hues of orange and pink across the sky. The air was cool and crisp, carrying the scent of pine and earth. Birds chirped their evening songs as they settled into their nests. A gentle breeze rustled through the leaves, creating a soothing melody."
 
-export default function Step2({ setStep }) {
-    const recorderControls = useAudioRecorder();
+export default function Step2({ setStep, recorderControls }) {
     const [isRecording, setIsRecording] = useState(false);
     const [recordingComplete, setRecordingComplete] = useState(false);
     const [timer, setTimer] = useState(5);
-    const [audioBlob, setAudioBlob] = useState(null);
 
     const startRecording = () => {
         setIsRecording(true);
@@ -44,7 +39,7 @@ export default function Step2({ setStep }) {
     }, [timer]);
     
     return (
-        <div key="2" className="max-w-sm mx-auto my-10 p-4 bg-gray-900 dark:bg-gray-800 rounded-lg flex flex-col justify-center mt-4 mb-4 h-full">
+        <div key="2" className="max-w-sm mx-auto my-10 p-4 rounded-lg flex flex-col justify-center mt-4 mb-4 h-full">
             <div onClick={() => setStep(1)} className="flex items-center justify-between bg-green-400 w-fit rounded-full p-2 cursor-pointer">
                 <ChevronLeftIcon className="text-black" />
             </div>
@@ -59,31 +54,20 @@ export default function Step2({ setStep }) {
                         {
                             isRecording ?
                                 <div className="h-full flex flex-col items-center justify-center">
-                                  <p className="text-center text-sm text-white h-fit">{para}</p>
-                                    <p className="text-center text-sm text-white mt-10 flex rounded-full bg-slate-700 p-4 ">{timer}</p>  
+                                    <p className="text-center text-lg font-semibold text-slate-200 h-fit">{para}</p>
                                 </div>
                                 :
-                                <p className="text-center text-sm text-white h-full flex items-center justify-center">"click the button down to show paragraph you'll need to read out loud"</p>
+                                <p className="text-center text-xl font-semibold text-slate-200 h-full flex items-center justify-center">"click the button down to show paragraph you'll need to read out loud"</p>
                         }
                         <div className="flex flex-col items-center justify-center flex-1" />
 
                         {
                             !isRecording ?
-                                <Button onClick={startRecording} className="bg-green-500 hover:bg-green-500 text-white p-4 rounded-full mt-auto mb-4">
+                                <Button onClick={startRecording} className="bg-green-500 hover:bg-green-500 text-white p-4 rounded-full mt-auto mb-4 relative z-10">
                                     <MicIcon className="text-white" />
                                 </Button> :
-                                <div className="p-4 mt-auto mb-4 rounded-full w-4 h-4 border border-green-50 bg-red-400 animate-pulse" />
+                                <div className="p-6 mt-auto mb-4 rounded-full w-6 h-6 border border-green-50 bg-red-400 animate-pulse flex justify-center items-center text-black font-semibold" >{timer}</div>
                         }
-
-                        <div className='hidden'>
-                            <AudioRecorder
-                                onRecordingComplete={(blob) => {
-                                    setAudioBlob(blob);
-                                }}
-                                recorderControls={recorderControls}
-                            />
-                        </div>
-
                     </div>
             }
         </div>

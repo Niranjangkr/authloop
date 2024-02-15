@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function Step1({setStep}) {
   return (
-    <div key="1" className="max-w-sm mx-auto my-10 p-4 bg-gray-900 dark:bg-gray-800 rounded-lg flex flex-col justify-between h-full">
+    <div key="1" className="max-w-sm mx-auto my-10 p-4 z-10  rounded-lg flex flex-col justify-between h-full">
       <div>
         <div className="flex justify-between items-center mb-4 mt-4 ">
           <h2 className="text-xl font-semibold w-full text-center text-gray-50 dark:text-gray-200">
@@ -16,7 +16,7 @@ export default function Step1({setStep}) {
           alt="Cocktail glass"
           className="mx-auto rounded-lg"
           height="200"
-          src="/images/cyber-security.jpg"
+          src="/images/Gemini_Generated_Image_lock.jpg"
           style={{
             aspectRatio: "200/200",
             objectFit: "cover",

@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button"
 
 export default function Step3({setStep}) {
   return (
-    <div key={3} className="max-w-sm mx-auto my-10 p-4 bg-gray-900 dark:bg-gray-800 rounded-lg flex flex-col justify-center mt-4 mb-4 h-full">
-      <div className="bg-gray-900 text-white max-w-sm mx-auto p-6 rounded-lg">
+    <div key={3} className="max-w-sm mx-auto my-10 p-4  rounded-lg flex flex-col justify-center mt-4 mb-4 h-full relative z-10">
+      <div className=" text-white max-w-sm mx-auto p-6 rounded-lg">
         <div className="flex flex-col items-center justify-center py-12">
           <CheckIcon className="w-24 h-24 text-green-500" />
           <h2 className="text-3xl font-semibold mt-4 mb-2">You're all set</h2>
